@@ -6,13 +6,13 @@ type todo =
 
 let generate_function_interface ~oc fonction =
   let open Ton_types.ABI in
-  Printf.fprintf oc "%S" fonction.fun_name
+  Printf.fprintf oc "%s\n" fonction.fun_name
 
 let generate_ocaml_interface
       ~name
       ~(abi : Ton_types.ABI.contract)
       ~(oc : out_channel) =
-  Printf.fprintf oc "(* OCaml Interface for contract %s*)" name;
+  Printf.fprintf oc "(* OCaml Interface for contract %s*)\n" name;
   List.iter (generate_function_interface ~oc) abi.functions
 
 
